@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order Now</title>
+    <style>
+        body {
+            background-color: #111;
+            color: white;
+            font-family: serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+        .container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+            gap: 40px;
+            max-width: 900px;
+            width: 100%;
+            text-align: center;
+        }
+        .left, .right {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            width: 100%;
+            max-width: 400px;
+        }
+        input {
+            background: transparent;
+            border: none;
+            border-bottom: 1px solid white;
+            color: white;
+            padding: 5px;
+            width: 100%;
+            text-align: center;
+        }
+        .title {
+            font-size: 40px;
+            text-align: center;
+        }
+        .title hr {
+            width: 50px;
+            border: 1px solid white;
+            margin: auto;
+        }
+        button {
+            background: white;
+            color: black;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+            width: 100%;
+            max-width: 200px;
+            margin: auto;
+        }
+        @media (min-width: 768px) {
+            .container {
+                flex-wrap: nowrap;
+                justify-content: space-between;
+            }
+            .left, .right {
+                width: 45%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="left">
+            <label>Your Full Name</label>
+            <input type="text">
+            <label>Your Service</label>
+            <input type="text">
+            <label>Your Price</label>
+            <input type="text">
+            <label>Your Payment Method</label>
+            <input type="text">
+            <label>Your Email</label>
+            <input type="email">
+        </div>
+        <div class="right"><br><br>
+            <div class="title">Order <hr> Now</div>
+            <label>Your Code</label>
+            <input type="text">
+            <label>lehne display order code</label>
+            <input type="text"><br><br><br>
+            <button>Submit</button>
+        </div>
+    </div>
+</body>
+</html>
