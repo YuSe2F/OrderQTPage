@@ -129,7 +129,7 @@
                 }
 
                 const result = await response.json();
-                document.getElementById('orderCode').value = result.orderId || orderCode;
+                document.getElementById('orderCode').value = result.code || orderCode;
             } catch (error) {
                 console.error('Fetch Error:', error);
                 alert('Error submitting order: ' + error.message);
