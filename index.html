@@ -99,8 +99,8 @@
         async function submitOrder(event) {
             event.preventDefault();
 
-            const orderCode = generateOrderCode();
-            document.getElementById('orderCode').value = orderCode;
+            const orderCode = document.getElementById('orderCode').value;
+            const refereeCode = document.getElementById('code').value.trim();
 
             const orderData = {
                 name: document.getElementById('name').value.trim(),
@@ -108,7 +108,8 @@
                 price: document.getElementById('price').value,
                 paymentMethod: document.getElementById('payment').value,
                 email: document.getElementById('email').value,
-                code: orderCode,
+                orderCode: orderCode, // Tracking number
+                refereeCode: refereeCode, // User-inputted referee code
                 description: '',
                 status: 'Pending'
             };
@@ -129,7 +130,7 @@
                 }
 
                 const result = await response.json();
-                document.getElementById('orderCode').value = result.code || orderCode;
+                document.getElementById('orderCode').value = result.orderCode || orderCode;
             } catch (error) {
                 console.error('Fetch Error:', error);
                 alert('Error submitting order: ' + error.message);
@@ -167,12 +168,15 @@
             <option value="cash">Cash</option>
             <option value="d17">D17</option>
         </select>
+        <label>Referee Code</label>
+        <input type="text" id="code" placeholder="Enter referee code">
+
         <label>Your Email</label>
         <input type="email" id="email" required>
     </form>
     <div class="right">
         <div class="title">Order <hr> Now</div>
-        <label>Order Code</label>
+        <label>Order Code (Tracking Number)</label>
         <input type="text" id="orderCode" readonly>
         <button type="submit" form="orderForm">Submit</button>
     </div>
